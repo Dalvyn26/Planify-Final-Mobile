@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- === THEME.PLANIFY — RETRO 8-BIT BRUTALIST (NIGHT) === -->
+    <style name="Theme.Planify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/on_surface_secondary</item>
+        <item name="colorOnPrimary">@color/accent_on</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/accent_on</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/bottom_nav_bg</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Planify.BottomSheet</item>
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <!-- Shapes: all 0dp (sharp corners) -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Planify.Sharp</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Planify.Sharp</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Planify.Sharp</item>
+    </style>
+
+    <style name="Theme.Planify.Splash" parent="Theme.Planify">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+    </style>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Retro Ripple: flat ripple on cream background -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#441A1A1A">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F5F5DC"/>
+        </shape>
+    </item>
+</ripple>

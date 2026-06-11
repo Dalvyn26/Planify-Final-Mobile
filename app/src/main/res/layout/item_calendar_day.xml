@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CALENDAR DAY ITEM — Retro 8-bit Brutalist -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:id="@+id/dayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingVertical="4dp">
+
+        <LinearLayout
+            android:id="@+id/dotContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:minHeight="4dp"/>
+
+        <TextView
+            android:id="@+id/tvDayNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:paddingVertical="2dp"
+            android:background="@null"/>
+
+        <View
+            android:id="@+id/holidayUnderscore"
+            android:layout_width="14dp"
+            android:layout_height="1.5dp"
+            android:background="@color/priority_high"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</FrameLayout>

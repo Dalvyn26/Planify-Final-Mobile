@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TASK ITEM (completed/strikethrough) — Retro 8-bit Brutalist -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:alpha="0.5">
+
+        <!-- Checked square (X mark = completed) -->
+        <ImageButton
+            android:id="@+id/checkboxCompleted"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/card_header"
+            android:src="@color/transparent"
+            android:enabled="false"
+            android:contentDescription="Completed task"/>
+
+        <!-- Content: strikethrough text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCompletedTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Completed Task"
+                android:textSize="15sp"
+                android:textColor="@color/on_surface_muted"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvCompletedMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="11sp"
+                android:textColor="@color/on_surface_muted"
+                android:textAllCaps="true"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Delete Button -->
+        <ImageButton
+            android:id="@+id/btnDeleteCompleted"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:background="@null"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/on_surface"
+            android:contentDescription="Delete completed task"
+            android:padding="4dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/card_header"/>
+
+</LinearLayout>

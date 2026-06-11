@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POMODORO / FOCUS FRAGMENT — Retro 8-bit Brutalist -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <include layout="@layout/layout_header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="130dp">
+
+        <!-- === MAIN TIMER CARD === -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_brutalist_card"
+                android:padding="24dp"
+                android:gravity="center"
+                android:layout_marginTop="12dp">
+
+                <!-- Huge Timer Text -->
+                <TextView
+                    android:id="@+id/tvTimerLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25:00"
+                    android:textSize="80sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/tvTimerSubLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Focus session in progress. Stay on task."
+                    android:textSize="14sp"
+                    android:textColor="@color/on_surface_secondary"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"/>
+
+                <!-- Control Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="32dp">
+
+                    <!-- START Button -->
+                    <LinearLayout
+                        android:id="@+id/btnStartPomodoro"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/bg_brutalist_card"
+                        android:layout_marginHorizontal="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:id="@+id/ivPlayPauseIcon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_play"
+                            app:tint="@color/on_surface"/>
+                        <TextView
+                            android:id="@+id/tvPlayPauseText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="START"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- SKIP Button -->
+                    <LinearLayout
+                        android:id="@+id/btnSkipPomodoro"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@color/card_header"
+                        android:layout_marginHorizontal="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_skip"
+                            app:tint="@color/card_header_text"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SKIP"
+                            android:textColor="@color/card_header_text"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- RESET Button -->
+                    <LinearLayout
+                        android:id="@+id/btnResetPomodoro"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/bg_brutalist_card"
+                        android:layout_marginHorizontal="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_refresh"
+                            app:tint="@color/on_surface"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RESET"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Retro Floating Tag -->
+            <TextView
+                android:id="@+id/tvTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☕ DEEP WORK"
+                android:background="@color/card_header"
+                android:textColor="@color/card_header_text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="20dp"
+                android:elevation="4dp"/>
+        </RelativeLayout>
+
+        <!-- === SESSION PROGRESS CARD === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_border_only"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SESSION PROGRESS"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"/>
+                <TextView
+                    android:id="@+id/tvSessionRatio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2/4 POMODOROS"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/card_header"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Segmented Bar -->
+            <LinearLayout
+                android:id="@+id/segmentedProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <!-- Will be populated dynamically -->
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- === ACTIVE TASK CARD === -->
+        <LinearLayout
+            android:id="@+id/layoutActiveTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_brutalist_card"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_header"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ACTIVE TASK"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/card_header_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="!"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/card_header_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/cbTaskActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+                    <TextView
+                        android:id="@+id/tvActiveTaskTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Web Design Final Project"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"/>
+                    <TextView
+                        android:id="@+id/tvActiveTaskPriority"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HIGH PRIORITY"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/card_header_text"
+                        android:background="@color/priority_high"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="1dp"
+                        android:layout_marginTop="2dp"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/tvActiveTaskDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Finish the landing page prototype"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/on_surface_secondary"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

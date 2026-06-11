@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SETTINGS ACTIVITY — Retro 8-bit Brutalist (DayNight Compatible) -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Custom Compact Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_header"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="12dp"
+            android:gravity="center_vertical">
+
+            <!-- Back Button -->
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[ ← ]"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/card_header_text"
+                android:letterSpacing="0.05"
+                android:paddingEnd="16dp"
+                android:paddingVertical="4dp"/>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SYSTEM_CONFIG"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/card_header_text"
+                android:letterSpacing="0.05"
+                android:textAllCaps="true"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+        <!-- === APPEARANCE SECTION === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_brutalist_card">
+
+            <!-- Section header: inverted -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_header"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="APPEARANCE"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/card_header_text"
+                    android:letterSpacing="0.05"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+            <!-- Dark Mode row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:background="@color/surface">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⊙ Dark Mode"
+                    android:textSize="15sp"
+                    android:textColor="@color/on_surface"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchDarkMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- === POMODORO SECTION === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_brutalist_card">
+
+            <!-- Section header: inverted -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_header"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="POMODORO_CONFIG"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/card_header_text"
+                    android:letterSpacing="0.05"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+            <!-- Pomodoro body card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@color/surface">
+
+                <!-- Work Duration -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="WORK_DURATION"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface"
+                            android:letterSpacing="0.05"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:id="@+id/tvWorkDurationValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25 MIN"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface_muted"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekWorkDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="45"
+                        android:progress="10"
+                        android:progressTint="@color/accent"
+                        android:thumbTint="@color/accent"/>
+
+                </LinearLayout>
+
+                <!-- 2dp separator -->
+                <View android:layout_width="match_parent" android:layout_height="2dp"
+                    android:background="@color/surface_dim" android:layout_marginBottom="12dp"/>
+
+                <!-- Short Break -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="SHORT_BREAK"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface"
+                            android:letterSpacing="0.05"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:id="@+id/tvShortBreakValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5 MIN"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface_muted"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekShortBreak"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="12"
+                        android:progress="2"
+                        android:progressTint="@color/accent"
+                        android:thumbTint="@color/accent"/>
+
+                </LinearLayout>
+
+                <!-- 2dp separator -->
+                <View android:layout_width="match_parent" android:layout_height="2dp"
+                    android:background="@color/surface_dim" android:layout_marginBottom="12dp"/>
+
+                <!-- Long Break -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="LONG_BREAK"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface"
+                            android:letterSpacing="0.05"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:id="@+id/tvLongBreakValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 MIN"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface_muted"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekLongBreak"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="20"
+                        android:progress="5"
+                        android:progressTint="@color/accent"
+                        android:thumbTint="@color/accent"/>
+
+                </LinearLayout>
+
+                <!-- 2dp separator -->
+                <View android:layout_width="match_parent" android:layout_height="2dp"
+                    android:background="@color/surface_dim" android:layout_marginBottom="12dp"/>
+
+                <!-- Long Break Interval -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="LONG_BREAK_AFTER"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:letterSpacing="0.05"
+                        android:textAllCaps="true"/>
+
+                    <NumberPicker
+                        android:id="@+id/pickerInterval"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" SESSIONS"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface_muted"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- === ABOUT SECTION === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_brutalist_card">
+
+            <!-- Section header: inverted -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/card_header"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABOUT"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/card_header_text"
+                    android:letterSpacing="0.05"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+            <!-- About body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⊙ Version"
+                        android:textSize="15sp"
+                        android:textColor="@color/on_surface"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="V1.0.0"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface_muted"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="2dp"
+                    android:background="@color/surface_dim"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⊙ Developer"
+                        android:textSize="15sp"
+                        android:textColor="@color/on_surface"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dalvyn Suhada"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface_muted"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.05"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

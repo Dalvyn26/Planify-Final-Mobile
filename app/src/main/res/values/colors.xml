@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- === RETRO 8-BIT BRUTALIST PALETTE (LIGHT MODE) === -->
+
+    <!-- Core Tones -->
+    <color name="fade_black">#1A1A1A</color>
+    <color name="light_cream">#F5F5F5</color>
+    <color name="pure_white">#FFFFFF</color>
+    <color name="pure_black">#000000</color>
+
+    <!-- Background / Surface -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_dim">#E0E0E0</color>
+
+    <!-- Text -->
+    <color name="on_surface">#1A1A1A</color>
+    <color name="on_surface_secondary">#444444</color>
+    <color name="on_surface_muted">#747474</color>
+    <color name="on_surface_inverted">#F5F5F5</color>
+
+    <!-- Borders -->
+    <color name="border_default">#1A1A1A</color>
+    <color name="border_light">#888888</color>
+
+    <!-- Cards -->
+    <color name="card_surface">#FFFFFF</color>
+    <color name="card_header">#1A1A1A</color>
+    <color name="card_header_text">#F5F5F5</color>
+
+    <!-- Bottom Navigation -->
+    <color name="bottom_nav_bg">#1A1A1A</color>
+    <color name="bottom_nav_selected">#F5F5F5</color>
+    <color name="bottom_nav_unselected">#888888</color>
+
+    <!-- Priority (Semantic Retro) -->
+    <color name="priority_high">#D32F2F</color>
+    <color name="priority_medium">#FBC02D</color>
+    <color name="priority_low">#388E3C</color>
+
+    <!-- Error -->
+    <color name="error_color">#BA1A1A</color>
+
+    <!-- Accent (inverted) -->
+    <color name="accent">#1A1A1A</color>
+    <color name="accent_on">#F5F5F5</color>
+
+    <!-- Misc compatibility aliases -->
+    <color name="glass_background">#FFFFFF</color>
+    <color name="glass_border">#1A1A1A</color>
+    <color name="glass_border_light">#888888</color>
+    <color name="glass_shadow">#1A000000</color>
+    <color name="on_surface_secondary_alias">#444444</color>
+    <color name="divider">#1A1A1A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="offline_banner">#1A1A1A</color>
+    <color name="offline_text">#F5F5F5</color>
+    <color name="bottom_nav_selected_alias">#F5F5F5</color>
+    <color name="bottom_nav_unselected_alias">#888888</color>
+
+    <!-- Retro terminal green -->
+    <color name="retro_green">#4CAF50</color>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TASK ITEM (active) — Retro 8-bit Brutalist -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Custom Checkbox replacement (ImageButton) -->
+        <ImageButton
+            android:id="@+id/checkboxTask"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bg_border_only"
+            android:src="@color/transparent"
+            android:contentDescription="Check task"
+            android:scaleType="centerInside"/>
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTaskTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Task Title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"/>
+
+            <TextView
+                android:id="@+id/tvDueDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DUE: 12 MAY, 10:00"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface_muted"
+                android:layout_marginTop="2dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvTaskDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Task description goes here..."
+                android:textSize="13sp"
+                android:textColor="@color/on_surface_muted"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="2dp"
+                android:visibility="gone"/>
+
+            <!-- Tags -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:id="@+id/tvPriorityTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="URGENT"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/bg_border_only"
+                    android:backgroundTint="@color/surface_dim"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvXpTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XP: 500"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:background="@drawable/bg_border_only"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="4dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Play pomodoro button (optional, keep it if they want) -->
+        <ImageButton
+            android:id="@+id/btnPlayPomodoro"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/accent"
+            android:src="@drawable/ic_play"
+            android:padding="6dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="Start pomodoro"
+            android:visibility="gone"
+            app:tint="@color/accent_on"/>
+
+    </LinearLayout>
+
+    <!-- 2dp horizontal black rule separator -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/card_header"/>
+
+</LinearLayout>

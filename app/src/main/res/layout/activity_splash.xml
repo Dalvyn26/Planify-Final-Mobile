@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPLASH — Retro 8-bit Brutalist with Shimmer -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Center content -->
+    <LinearLayout
+        android:id="@+id/centerContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Logo with glow container -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/ivSplashLogo"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:contentDescription="App Logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/planify_logo" />
+        </FrameLayout>
+
+        <!-- Shimmer on App Title -->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:shimmer_auto_start="false"
+            app:shimmer_base_alpha="1.0"
+            app:shimmer_highlight_alpha="0.6"
+            app:shimmer_duration="1500"
+            app:shimmer_direction="left_to_right"
+            app:shimmer_tilt="15">
+
+            <TextView
+                android:id="@+id/tvSplashTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:fontFamily="@font/space_grotesk"
+                android:letterSpacing="0.05"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/on_surface"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!-- Horizontal rule (animated width) -->
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@color/card_header" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvSplashSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:alpha="0"
+            android:fontFamily="@font/space_grotesk"
+            android:letterSpacing="0.1"
+            android:text="@string/app_subtitle"
+            android:textAllCaps="true"
+            android:textColor="@color/on_surface_muted"
+            android:textSize="13sp" />
+
+        <!-- Version -->
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:alpha="0"
+            android:fontFamily="@font/space_grotesk"
+            android:letterSpacing="0.1"
+            android:text="V1.0"
+            android:textAllCaps="true"
+            android:textColor="@color/on_surface_muted"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Retro loading bar -->
+        <FrameLayout
+            android:layout_width="200dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_brutalist_card">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:shimmer_auto_start="false"
+                app:shimmer_base_alpha="0.3"
+                app:shimmer_highlight_alpha="1.0"
+                app:shimmer_duration="800"
+                app:shimmer_repeat_mode="restart"
+                app:shimmer_direction="left_to_right">
+
+                <View
+                    android:id="@+id/viewLoadingFill"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/retro_green" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </FrameLayout>
+
+        <!-- Loading text -->
+        <TextView
+            android:id="@+id/tvLoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0"
+            android:fontFamily="@font/space_grotesk"
+            android:letterSpacing="0.15"
+            android:text="INITIALIZING..."
+            android:textAllCaps="true"
+            android:textColor="@color/on_surface_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Credits — bottom center -->
+    <TextView
+        android:id="@+id/tvCredits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:alpha="0"
+        android:fontFamily="@font/space_grotesk"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:letterSpacing="0.1"
+        android:text="by Dalvyn Suhada"
+        android:textAllCaps="true"
+        android:textColor="@color/on_surface_muted"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

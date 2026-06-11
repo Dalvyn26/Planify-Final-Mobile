@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- === THEME.PLANIFY — RETRO 8-BIT BRUTALIST === -->
+    <style name="Theme.Planify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/on_surface_secondary</item>
+        <item name="colorOnPrimary">@color/accent_on</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/accent_on</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/card_header</item>
+        <item name="android:navigationBarColor">@color/bottom_nav_bg</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Planify.BottomSheet</item>
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <!-- Shapes: all 0dp (sharp corners) -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Planify.Sharp</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Planify.Sharp</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Planify.Sharp</item>
+    </style>
+
+    <!-- Sharp corners — 0dp radius everywhere -->
+    <style name="ShapeAppearance.Planify.Sharp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="Theme.Planify.Splash" parent="Theme.Planify">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowSplashScreenBackground">@color/background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/planify_logo</item>
+    </style>
+
+    <style name="Theme.Planify.BottomSheet" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.Planify.BottomSheet</item>
+    </style>
+
+    <style name="Widget.Planify.BottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="android:background">@drawable/bg_retro_bottomsheet</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <!-- ===  Text Appearances === -->
+    <style name="TextAppearance.Planify.Display" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TextAppearance.Planify.Headline" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TextAppearance.Planify.Title" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="TextAppearance.Planify.Label" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="TextAppearance.Planify.LabelInverted" parent="TextAppearance.Planify.Label">
+        <item name="android:textColor">@color/card_header_text</item>
+    </style>
+
+    <style name="TextAppearance.Planify.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="TextAppearance.Planify.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/on_surface_muted</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <!-- === Buttons === -->
+    <!-- Primary: Accent fill + Accent On text -->
+    <style name="Widget.Planify.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">0dp</item>
+        <item name="backgroundTint">@color/accent</item>
+        <item name="android:textColor">@color/accent_on</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Outlined: Surface fill + On Surface border -->
+    <style name="Widget.Planify.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">0dp</item>
+        <item name="backgroundTint">@color/surface</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="strokeColor">@color/border_default</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- === Cards === -->
+    <style name="Widget.Planify.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border_default</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+
+    <!-- Inverted card header -->
+    <style name="Widget.Planify.CardHeader" parent="Widget.Planify.Card">
+        <item name="cardBackgroundColor">@color/card_header</item>
+    </style>
+
+    <!-- === Input Fields === -->
+    <style name="Widget.Planify.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">0dp</item>
+        <item name="boxCornerRadiusTopEnd">0dp</item>
+        <item name="boxCornerRadiusBottomStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">0dp</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">4dp</item>
+        <item name="boxStrokeColor">@color/border_default</item>
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="hintTextColor">@color/on_surface_muted</item>
+    </style>
+</resources>

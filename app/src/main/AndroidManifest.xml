@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/planify_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/planify_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Planify"
+        android:enableOnBackInvokedCallback="true">
+
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Planify.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activity.MainActivity"/>
+
+        <activity
+            android:name=".ui.activity.MissionLogActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activity.MainActivity"/>
+
+        <activity
+            android:name=".ui.activity.EditProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activity.MainActivity"/>
+
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".ui.activity.SignupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <receiver android:name=".receiver.ReminderReceiver" android:exported="false"/>
+
+        <service
+            android:name=".service.PomodoroTimerService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"/>
+
+    </application>
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" tools:ignore="ProtectedPermissions" />
+
+</manifest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Night: Pill shape -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/surface"/>
+    <stroke android:width="2dp" android:color="@color/border_default"/>
+    <corners android:radius="16dp"/>
+</shape>

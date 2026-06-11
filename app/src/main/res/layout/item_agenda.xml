@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AGENDA ITEM — Retro 8-bit Brutalist -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:gravity="center_vertical">
+
+    <!-- ▶ pointer indicator -->
+    <TextView
+        android:id="@+id/tvAgendaIcon"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:text="▶"
+        android:textSize="10sp"
+        android:textColor="@color/on_surface_muted"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Priority Bar -->
+    <View
+        android:id="@+id/priorityIndicator"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:background="@color/priority_low"/>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAgendaTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agenda Item"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"/>
+
+        <TextView
+            android:id="@+id/tvAgendaTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="09:00"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface_muted"
+            android:letterSpacing="0.05"
+            android:textAllCaps="true"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <!-- Priority chip -->
+    <TextView
+        android:id="@+id/tvAgendaPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TASK"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/on_surface"
+        android:letterSpacing="0.05"
+        android:textAllCaps="true"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"
+        android:background="@drawable/bg_brutalist_card"/>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Retro 8-bit Brutalist — 4px baseline grid, all radii = 0dp, borders = 2dp/4dp -->
+<resources>
+    <!-- 4px Baseline Grid -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Retro: ALL radii = 0dp (sharp corners) -->
+    <dimen name="card_radius">0dp</dimen>
+    <dimen name="card_radius_large">0dp</dimen>
+    <dimen name="button_radius">0dp</dimen>
+    <dimen name="pill_radius">0dp</dimen>
+    <dimen name="bottom_sheet_radius">0dp</dimen>
+    <dimen name="bottom_nav_radius">0dp</dimen>
+
+    <!-- Border widths: only 2dp or 4dp (no odd values) -->
+    <dimen name="border_width">2dp</dimen>
+    <dimen name="border_width_focus">4dp</dimen>
+    <dimen name="priority_bar_width">4dp</dimen>
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="stroke_width_heavy">4dp</dimen>
+
+    <!-- Typography scale (matches DESIGN.md) -->
+    <dimen name="text_size_display">32sp</dimen>
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_timer">72sp</dimen>
+    <dimen name="text_size_label">14sp</dimen>
+    <dimen name="text_size_label_sm">12sp</dimen>
+
+    <!-- Layout -->
+    <dimen name="bottom_nav_margin">0dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="calendar_cell_height">36dp</dimen>
+    <dimen name="content_margin">16dp</dimen>
+
+    <!-- Pomodoro session dots (square, not circles) -->
+    <dimen name="session_dot_size">16dp</dimen>
+    <dimen name="session_dot_spacing">4dp</dimen>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TASK HEADER ITEM — Retro 8-bit Brutalist (inverted section header) -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/card_header"
+    android:padding="8dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="4dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tvSectionTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="COMPLETED_MISSIONS"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@color/card_header_text"
+        android:letterSpacing="0.05"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:id="@+id/tvSectionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 PENDING"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/on_surface"
+        android:background="@color/surface"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"
+        android:letterSpacing="0.05"
+        android:textAllCaps="true"/>
+
+</LinearLayout>

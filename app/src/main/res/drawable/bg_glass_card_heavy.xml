@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Retro Card Heavy: same as card but used for elevated sections -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F5F5DC"/>
+    <stroke android:width="2dp" android:color="#1A1A1A"/>
+</shape>
