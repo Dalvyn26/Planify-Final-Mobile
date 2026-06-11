@@ -31,31 +31,31 @@ Setiap interaksi tombol memicu feedback audio retro 8-bit yang khas, memberikan 
 
 Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planify:
 
-### ⊡ `01` Task Manager (Manajemen Misi)
+### ⊡ `01` Task Manager 
 * **Kontrol Penuh**: Tambah, edit, dan hapus tugas harian Anda secara dinamis.
 * **Prioritas Misi**: Tentukan tingkat urgensi tugas menggunakan indikator prioritas `Low`, `Medium`, atau `High`.
 * **State Management**: Sistem tracking otomatis yang memisahkan tugas aktif (`Pending`) dan tugas selesai (`Completed`).
 * **Offline First**: Semua data tersimpan aman secara lokal tanpa memerlukan koneksi internet melalui database SQLite (Room Persistence Library).
 
-### ⏱ `02` Pomodoro Timer (Modul Fokus)
+### ⏱ `02` Pomodoro Timer 
 * **Sesi Pomodoro**: Siklus fokus terintegrasi (25 menit kerja, diikuti dengan 5 menit istirahat).
 * **Retro Progress**: Animasi loading bar pixelated yang estetik saat timer berjalan.
 * **Mission Tracker**: Setiap sesi yang sukses diselesaikan otomatis direkam dan dikonversi menjadi poin statistik harian Anda.
 
-### 📅 `03` Google Calendar Sync (Sinkronisasi Orbit)
+### 📅 `03` Google Calendar Sync
 * **Real-time Sync**: Tampilkan jadwal acara pribadi dari Google Calendar langsung pada tab kalender aplikasi.
 * **Google OAuth**: Integrasi API yang aman dengan Google Sign-In tanpa mengganggu sistem autentikasi lokal aplikasi.
 
-### 🌤 `04` Weather Widget (Sensor Cuaca)
+### 🌤 `04` Weather Widget
 * **Deteksi Lokasi**: Integrasi GPS Location Services untuk membaca posisi geografis secara otomatis.
 * **Informasi Real-Time**: Data cuaca dan suhu ditarik langsung dari OpenWeather API.
 * **Smart Cache**: Dilengkapi sistem penyimpanan cache untuk menghemat kuota data seluler Anda.
 
-### 👤 `05` Profile & Mission Stats (Terminal Profil)
+### 👤 `05` Profile & Mission Stats
 * **Statistik Produktivitas**: Pantau metrik kemajuan Anda seperti *Completion Rate*, *Total Pomodoro*, dan rekor hari beruntun (*Streak*).
 * **Custom Avatar**: Ambil gambar langsung dari Galeri HP Anda, dengan pemrosesan *auto-crop* persegi yang selaras dengan tema Brutalist.
 
-### ⚙️ `06` Settings (Pusat Kontrol)
+### ⚙️ `06` Settings
 * **Kustomisasi Durasi**: Atur panjang sesi Pomodoro sesuai preferensi fokus Anda.
 * **Manajemen Tema**: Dukungan mode gelap (*Dark Mode*), mode terang (*Light Mode*), atau mengikuti sistem Android (*System Default*).
 * **Audio Switch**: Aktifkan atau matikan musik & efek suara retro 8-bit kapan saja.
