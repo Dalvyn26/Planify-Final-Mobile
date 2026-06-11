@@ -62,7 +62,7 @@ Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planif
 
 ---
 
-## 📸 App Preview
+## App Design Preview
 
 <div align="center">
   <img src="Screenshot/PLANIFYmockup.jpg" alt="Planify Mockup Showcase" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
@@ -70,7 +70,7 @@ Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planif
 
 ---
 
-## 🛠️ Tech Stack & Arsitektur
+## Tech Stack & Arsitektur
 
 Konstruksi teknis Planify dibangun menggunakan standar pengembangan Android modern dan stabil:
 
