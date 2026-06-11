@@ -21,52 +21,69 @@
 
 ## Tentang Aplikasi
 
-Planify adalah task manager bergaya **Retro 8-Bit Brutalist** yang dibuat sebagai proyek akhir semester. Tujuannya sederhana: satu aplikasi yang cukup untuk mengelola tugas harian, sesi fokus (Pomodoro), jadwal (Google Calendar), dan cuaca — semua dalam satu tampilan yang tidak membosankan.
+**Planify** adalah aplikasi *task manager* inovatif berbasis Android native yang mengusung estetika **Retro 8-Bit Brutalist**. Dirancang khusus sebagai proyek akhir semester, aplikasi ini bertujuan menciptakan ruang kerja digital bebas distraksi dengan menyatukan manajemen tugas harian, sesi fokus Pomodoro, sinkronisasi Google Calendar, serta widget cuaca real-time ke dalam satu dashboard *high-contrast* yang interaktif.
 
-Setiap tombol yang ditekan mengeluarkan suara 8-bit. Splash screen punya efek shimmer. Statistik produktivitas tercatat rapi. Dan desainnya sengaja dibuat bold dan kontras supaya tidak tertukar dengan aplikasi lain.
-
----
-
-## Fitur
-
-**Task Manager**
-Tambah, edit, hapus tugas. Ada label prioritas (Low / Medium / High) dan sistem tracking otomatis antara Pending dan Completed. Semua data tersimpan offline via Room (SQLite).
-
-**Pomodoro Timer**
-Timer fokus 25 menit dengan sesi istirahat. Loading bar bergaya retro. Setiap sesi yang selesai otomatis masuk ke statistik "Pomodoro Today" di halaman Home dan Mission Stats di Profile.
-
-**Kalender (Google Calendar Sync)**
-Tampilkan jadwal langsung dari Google Calendar. Login Google hanya digunakan untuk kalender — tidak memengaruhi akun lokal aplikasi.
-
-**Cuaca Real-Time**
-Menggunakan GPS untuk deteksi lokasi, lalu tarik data dari OpenWeather API. Ada sistem cache agar tidak boros data. Ikon cuaca otomatis menyesuaikan kondisi (hujan, mendung, cerah, dll).
-
-**Profile & Mission Stats**
-Pantau Completion Rate, total Pomodoro, dan streak harian. Bisa ganti avatar dari galeri — foto otomatis di-crop jadi persegi dan disimpan lokal. Tidak perlu internet.
-
-**Settings**
-Ganti durasi Pomodoro, atur tema (Light/Dark/System), dan kontrol suara aplikasi.
+Setiap interaksi tombol memicu feedback audio retro 8-bit yang khas, memberikan kepuasan instan layaknya menyelesaikan misi di dalam *game classic*.
 
 ---
 
-## Screenshot
+## Fitur Utama
 
-<img src="Screenshot/PLANIFYmockup.jpg" alt="Planify Mockup" width="720"/>
+Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planify:
+
+### ⊡ `01` Task Manager (Manajemen Misi)
+* **Kontrol Penuh**: Tambah, edit, dan hapus tugas harian Anda secara dinamis.
+* **Prioritas Misi**: Tentukan tingkat urgensi tugas menggunakan indikator prioritas `Low`, `Medium`, atau `High`.
+* **State Management**: Sistem tracking otomatis yang memisahkan tugas aktif (`Pending`) dan tugas selesai (`Completed`).
+* **Offline First**: Semua data tersimpan aman secara lokal tanpa memerlukan koneksi internet melalui database SQLite (Room Persistence Library).
+
+### ⏱ `02` Pomodoro Timer (Modul Fokus)
+* **Sesi Pomodoro**: Siklus fokus terintegrasi (25 menit kerja, diikuti dengan 5 menit istirahat).
+* **Retro Progress**: Animasi loading bar pixelated yang estetik saat timer berjalan.
+* **Mission Tracker**: Setiap sesi yang sukses diselesaikan otomatis direkam dan dikonversi menjadi poin statistik harian Anda.
+
+### 📅 `03` Google Calendar Sync (Sinkronisasi Orbit)
+* **Real-time Sync**: Tampilkan jadwal acara pribadi dari Google Calendar langsung pada tab kalender aplikasi.
+* **Google OAuth**: Integrasi API yang aman dengan Google Sign-In tanpa mengganggu sistem autentikasi lokal aplikasi.
+
+### 🌤 `04` Weather Widget (Sensor Cuaca)
+* **Deteksi Lokasi**: Integrasi GPS Location Services untuk membaca posisi geografis secara otomatis.
+* **Informasi Real-Time**: Data cuaca dan suhu ditarik langsung dari OpenWeather API.
+* **Smart Cache**: Dilengkapi sistem penyimpanan cache untuk menghemat kuota data seluler Anda.
+
+### 👤 `05` Profile & Mission Stats (Terminal Profil)
+* **Statistik Produktivitas**: Pantau metrik kemajuan Anda seperti *Completion Rate*, *Total Pomodoro*, dan rekor hari beruntun (*Streak*).
+* **Custom Avatar**: Ambil gambar langsung dari Galeri HP Anda, dengan pemrosesan *auto-crop* persegi yang selaras dengan tema Brutalist.
+
+### ⚙️ `06` Settings (Pusat Kontrol)
+* **Kustomisasi Durasi**: Atur panjang sesi Pomodoro sesuai preferensi fokus Anda.
+* **Manajemen Tema**: Dukungan mode gelap (*Dark Mode*), mode terang (*Light Mode*), atau mengikuti sistem Android (*System Default*).
+* **Audio Switch**: Aktifkan atau matikan musik & efek suara retro 8-bit kapan saja.
 
 ---
 
-## Tech Stack
+## 📸 App Preview
 
-| Layer | Teknologi |
-|---|---|
-| Bahasa | Java 17 |
-| UI | ViewBinding, Material Components, Custom XML |
-| Arsitektur | MVVM + LiveData + ViewModel |
-| Database | Room (SQLite), SharedPreferences |
-| Networking | Retrofit2, OkHttp3 |
-| API Eksternal | Google Calendar API, OpenWeather API |
-| Layanan Google | Play Services Location, Google Sign-In |
-| Lainnya | Facebook Shimmer, BitmapFactory (avatar) |
+<div align="center">
+  <img src="Screenshot/PLANIFYmockup.jpg" alt="Planify Mockup Showcase" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+</div>
+
+---
+
+## 🛠️ Tech Stack & Arsitektur
+
+Konstruksi teknis Planify dibangun menggunakan standar pengembangan Android modern dan stabil:
+
+| Komponen | Implementasi Teknologi |
+| :--- | :--- |
+| **Language** | <code>Java 17</code> (LTS) |
+| **Architecture** | <code>MVVM</code> (Model-View-ViewModel) dengan <code>LiveData</code> & <code>ViewModel</code> |
+| **User Interface** | <code>ViewBinding</code>, <code>Material Design 3</code>, Custom Shape & XML Vectors |
+| **Database** | <code>Room DB</code> (SQLite Wrapper), <code>SharedPreferences</code> |
+| **Networking** | <code>Retrofit 2</code>, <code>OkHttp 3</code> (untuk REST API) |
+| **Google Services** | <code>Play Services Location</code>, <code>Google Calendar API</code>, <code>Google Sign-In</code> |
+| **Visual Effects** | <code>Facebook Shimmer</code> (efek loading skeleton), Custom bitmap cropping |
+| **Audio Engine** | <code>SoundPool</code> / <code>MediaPlayer</code> (gaya Retro SoundManager) |
 
 ---
 
