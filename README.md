@@ -50,6 +50,7 @@ Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planif
 * **Deteksi Lokasi**: Integrasi GPS Location Services untuk membaca posisi geografis secara otomatis.
 * **Informasi Real-Time**: Data cuaca dan suhu ditarik langsung dari OpenWeather API.
 * **Smart Cache**: Dilengkapi sistem penyimpanan cache untuk menghemat kuota data seluler Anda.
+* **Tombol Refresh**: Tombol refresh manual tersedia untuk memperbarui data cuaca saat terjadi error atau tidak ada jaringan.
 
 ### 👤 `05` Profile & Mission Stats
 * **Statistik Produktivitas**: Pantau metrik kemajuan Anda seperti *Completion Rate*, *Total Pomodoro*, dan rekor hari beruntun (*Streak*).
@@ -67,6 +68,151 @@ Berikut adalah modul navigasi & fitur unggulan yang terintegrasi di dalam Planif
 <div align="center">
   <img src="Screenshot/PLANIFYmockup.jpg" alt="Planify Mockup Showcase" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
 </div>
+
+---
+
+## ✅ Pemenuhan Spesifikasi Teknis
+
+Tabel berikut merangkum pemenuhan seluruh syarat teknis yang diwajibkan dalam project ini:
+
+### 1. Activity — ✅ TERPENUHI
+
+Aplikasi memiliki **7 Activity** yang berbeda, jauh melebihi syarat minimal 2 Activity:
+
+| Activity | Keterangan |
+| :--- | :--- |
+| `SplashActivity` | **Launcher Activity** — Layar pembuka dengan animasi, cek sesi login |
+| `MainActivity` | Activity utama yang menjadi host navigasi Bottom Nav + Fragment |
+| `LoginActivity` | Halaman login pengguna dengan autentikasi Room DB |
+| `SignupActivity` | Halaman registrasi pengguna baru |
+| `EditProfileActivity` | Halaman edit nama, avatar, dan data profil |
+| `SettingsActivity` | Halaman pengaturan tema, suara, dan durasi Pomodoro |
+| `MissionLogActivity` | Halaman riwayat pencapaian / misi yang telah selesai |
+
+> `SplashActivity` adalah **Launcher Activity** yang didefinisikan dengan `intent-filter ACTION_MAIN + CATEGORY_LAUNCHER` pada `AndroidManifest.xml`.
+
+---
+
+### 2. Intent — ✅ TERPENUHI
+
+`Intent` digunakan secara konsisten untuk berpindah antar Activity di seluruh aplikasi:
+
+| Dari | Ke | Keterangan |
+| :--- | :--- | :--- |
+| `SplashActivity` | `MainActivity` | Jika sesi login tersimpan |
+| `SplashActivity` | `LoginActivity` | Jika belum login |
+| `LoginActivity` | `SignupActivity` | Daftar akun baru |
+| `LoginActivity` | `MainActivity` | Setelah login berhasil |
+| `SignupActivity` | `LoginActivity` | Kembali ke login |
+| `SignupActivity` | `MainActivity` | Setelah daftar berhasil |
+| `ProfileFragment` | `SettingsActivity` | Buka halaman pengaturan |
+| `ProfileFragment` | `EditProfileActivity` | Edit profil pengguna |
+| `ProfileFragment` | `MissionLogActivity` | Lihat riwayat misi |
+
+---
+
+### 3. RecyclerView — ✅ TERPENUHI
+
+`RecyclerView` digunakan di **4 tempat** berbeda dengan adapter yang masing-masing terpisah:
+
+| Adapter | Digunakan di | Data yang Ditampilkan |
+| :--- | :--- | :--- |
+| `TaskAdapter` | `TaskFragment` & `HomeFragment` | Daftar tugas aktif dan selesai (multi-viewtype) |
+| `CalendarDayAdapter` | `CalendarFragment` | Grid hari-hari dalam satu bulan |
+| `CalendarAgendaAdapter` | `CalendarFragment` | Daftar agenda/event dari Google Calendar |
+| *(Mission Log Adapter)* | `MissionLogActivity` | Riwayat pencapaian/misi |
+
+---
+
+### 4. Fragment & Navigation Component — ✅ TERPENUHI
+
+Aplikasi memiliki **5 Fragment** yang dikelola sepenuhnya oleh Android Navigation Component:
+
+| Fragment | Fungsi |
+| :--- | :--- |
+| `HomeFragment` | Dashboard utama (cuaca, statistik, tugas hari ini) |
+| `TaskFragment` | Manajemen tugas lengkap dengan swipe-to-delete |
+| `PomodoroFragment` | Timer Pomodoro dengan countdown & progress bar |
+| `CalendarFragment` | Kalender bulanan + sinkronisasi Google Calendar |
+| `ProfileFragment` | Profil pengguna, statistik XP, dan navigasi menu |
+
+Navigasi antar Fragment diatur melalui `nav_graph.xml` menggunakan `NavController` dan `NavigationUI.setupWithNavController()` yang terhubung ke `BottomNavigationView`.
+
+---
+
+### 5. Background Thread — ✅ TERPENUHI
+
+Semua operasi berat dijalankan di latar belakang menggunakan **`ExecutorService`** dan **`Handler`**:
+
+| Kelas | Implementasi | Operasi yang Dijalankan |
+| :--- | :--- | :--- |
+| `TaskRepository` | `Executors.newFixedThreadPool(4)` + `Handler(Looper.getMainLooper())` | Insert, Update, Delete, Query task dari Room DB |
+| `CalendarRepository` | `ExecutorService` + `Handler mainHandler` | Fetch, Create, Delete event Google Calendar API |
+| `EditProfileActivity` | `Executors.newSingleThreadExecutor()` | Simpan & ambil data profil dari Room DB |
+| `LoginActivity` | `Executors.newSingleThreadExecutor()` | Verifikasi kredensial dari Room DB |
+| `SignupActivity` | `Executors.newSingleThreadExecutor()` | Insert user baru ke Room DB |
+| `SplashActivity` | `Handler(Looper.getMainLooper())` | Delay animasi splash screen |
+
+Hasil dari thread background dikembalikan ke Main Thread melalui `mainHandler.post()` untuk update UI.
+
+---
+
+### 6. Networking (Retrofit) — ✅ TERPENUHI
+
+Aplikasi mengintegrasikan **Retrofit 2 + OkHttp 3** untuk mengambil data dari REST API:
+
+**Library yang digunakan:**
+- `Retrofit 2` — HTTP client untuk Android
+- `OkHttp 3` — HTTP client layer dengan `HttpLoggingInterceptor`
+- `Gson Converter` — Parsing response JSON otomatis
+
+**API yang diintegrasikan:**
+
+| API | Service | Endpoint | Data yang Ditampilkan |
+| :--- | :--- | :--- | :--- |
+| **OpenWeatherMap API** | `WeatherApiService` | `GET data/2.5/weather` | Suhu, kondisi cuaca, ikon cuaca di `HomeFragment` |
+| **Google Calendar API** | `CalendarApiService` | Google API HTTP | Event kalender di `CalendarFragment` |
+
+**Tombol Refresh saat gagal jaringan:** ✅
+- Di `HomeFragment`, terdapat `btnRefreshWeather` yang memanggil `weatherViewModel.forceRefresh()` untuk memperbarui data cuaca secara manual.
+- `NetworkUtils.isConnected()` digunakan untuk mendeteksi status koneksi jaringan sebelum melakukan request.
+- Jika tidak ada jaringan, pesan error ditampilkan via `tvWeatherError` dan data cuaca terakhir dari cache `SharedPreferences` tetap ditampilkan.
+
+---
+
+### 7. Local Data Persistent — ✅ TERPENUHI
+
+Aplikasi menggunakan **dua mekanisme** penyimpanan data lokal:
+
+#### a) Room Database (SQLite)
+Room digunakan untuk menyimpan data terstruktur secara persisten:
+
+| Entity | DAO | Data yang Disimpan |
+| :--- | :--- | :--- |
+| `Task` | `TaskDao` | Tugas (judul, prioritas, status, deadline, dll) |
+| `User` | `UserDao` | Data akun pengguna (nama, email, password hash) |
+
+Seluruh data tugas tersedia **offline** — pengguna tetap bisa melihat, menambah, dan menyelesaikan tugas meski tanpa koneksi internet.
+
+#### b) SharedPreferences
+`SharedPreferences` digunakan untuk menyimpan data sesi dan preferensi pengguna:
+
+| Key | Data yang Disimpan |
+| :--- | :--- |
+| `user_id`, `user_name`, `user_email` | Sesi login aktif |
+| `user_xp_<id>`, `total_pomodoros` | Poin XP & statistik produktivitas |
+| `weather_cache_*` | Cache data cuaca (hemat data seluler) |
+| `theme_preference` | Preferensi tema (Dark/Light/System) |
+| `sound_enabled` | Status on/off efek suara |
+| `pomodoro_duration` | Durasi timer Pomodoro yang dikustomisasi |
+
+#### c) Dua Tema (Dark / Light) ✅
+Aplikasi mendukung **tiga pilihan tema** yang bisa diatur dari halaman Settings:
+- **Dark Mode** — Menggunakan `values-night/themes.xml` dan `values-night/colors.xml`
+- **Light Mode** — Menggunakan `values/themes.xml` dan `values/colors.xml`
+- **System Default** — Mengikuti pengaturan sistem Android secara otomatis
+
+Theme diimplementasikan menggunakan `Theme.MaterialComponents.DayNight.NoActionBar` dengan override resource di folder `values-night/`.
 
 ---
 
@@ -93,7 +239,7 @@ Konstruksi teknis Planify dibangun menggunakan standar pengembangan Android mode
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/username-anda/planify.git
+git clone https://github.com/Dalvyn26/Planify-Final-Mobile.git
 
 # 2. Buka di Android Studio, lalu sync Gradle
 
@@ -101,7 +247,7 @@ git clone https://github.com/username-anda/planify.git
 WEATHER_API_KEY=your_openweather_api_key_here
 
 # 4. Taruh google-services.json ke folder app/
-#    (diperlukan untuk fitur Google Calendar)
+#    (diperlukan untuk fitur Google Calendar & Firebase)
 
 # 5. Run
 ./gradlew assembleDebug
@@ -118,16 +264,16 @@ app/src/main/java/com/example/planify/
 ├── data/
 │   ├── local/          # Room DAO, Entity, Database
 │   ├── remote/         # Retrofit API service & model
-│   └── repository/     # TaskRepo, WeatherRepo
+│   └── repository/     # TaskRepo, CalendarRepo
 ├── service/            # PomodoroTimerService (foreground)
 ├── receiver/           # NotificationReceiver
 ├── ui/
-│   ├── activity/       # Login, Signup, Splash, EditProfile, dll
+│   ├── activity/       # Login, Signup, Splash, EditProfile, Settings, MissionLog, Main
 │   ├── fragment/       # Home, Task, Pomodoro, Calendar, Profile
 │   ├── viewmodel/      # TaskVM, WeatherVM, CalendarVM
 │   ├── adapter/        # RecyclerView adapters
 │   └── bottomsheet/    # Bottom sheet dialogs
-└── utils/              # Constants, SoundManager, AvatarUtils, dll
+└── utils/              # Constants, NetworkUtils, SoundManager, AvatarUtils, dll
 ```
 
 ---
